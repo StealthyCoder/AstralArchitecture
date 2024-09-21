@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
@@ -45,7 +45,16 @@ return {
       -- first key is the mode
       n = {
         -- second key is the lefthand side of the map
-
+        L = {
+          function() require("astronvim.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+          desc = "Next buffer",
+        },
+        H = {
+          function() require("astronvim.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+          desc = "Previous buffer",
+        },
+        -- highlight info in code
+        ["gk"] = { function() vim.lsp.buf.hover() end, desc = "Hover symbol details" },
         -- navigate buffer tabs
         ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
@@ -66,6 +75,10 @@ return {
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
+      },
+      v = {
+        ["<Leader>s"] = { desc = "Snapshot" },
+        ["<Leader>sc"] = { "<Esc>:'<,'>Silicon<cr>", desc = "Snapshot Code" },
       },
     },
   },
