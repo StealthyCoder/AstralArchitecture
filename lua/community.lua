@@ -14,6 +14,7 @@ return {
   { import = "astrocommunity.pack.fish" },
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.svelte" },
+  { import = "astrocommunity.pack.terraform" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   -- import/override with your plugins folder
 }
