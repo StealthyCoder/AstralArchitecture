@@ -15,6 +15,7 @@ return {
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.svelte" },
   { import = "astrocommunity.pack.terraform" },
+  { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   -- import/override with your plugins folder
 }
